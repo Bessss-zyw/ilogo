@@ -1,0 +1,83 @@
+<template>
+  <div class = "demo-page">
+    <div class = "grid">
+      <div class = "image-container" for = "item in imageList">
+        <text> 图片n</text>
+        <image src={{item}}></image>
+      </div>
+      <div class = "image-container" for = "item in imageList">
+        <text> 图片n</text>
+        <image src={{item}}></image>
+      </div>
+      <div class = "image-container" for = "item in imageList">
+        <text> 图片n</text>
+        <image src={{item}}></image>
+      </div>
+    </div>
+
+  </div>
+
+</template>
+
+
+<script>
+export default {
+  private: {
+    imageList: [
+      '../Common/logo10.jpeg',
+      '../Common/logo11.jpeg',
+      '../Common/logo12.jpeg',
+      '../Common/logo13.jpeg',
+      '../Common/logo14.jpeg',
+      '../Common/logo15.jpeg',
+      '../Common/logo.jpeg',      
+      '../Common/logo.png',
+      '../Common/logo1.jpeg',
+      '../Common/logo2.jpeg',
+      '../Common/logo3.jpeg',
+      '../Common/logo4.png',
+      '../Common/logo5.png',
+      '../Common/logo6.png',
+      '../Common/logo7.png',
+    ],
+  },
+  
+  onMenuPress() {
+    this.$app.$def.showMenu()
+  }
+}
+</script>
+
+
+<style>
+  .demo-page {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .grid {
+    width: 650px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color:#f8f8ff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .image-container {
+    flex-direction: column;
+    padding: 50px;
+
+  }
+  .image-container text {
+    text-align: left;
+    font-size: 30px;
+    color: #a9a9a9;
+  }
+  .image-container image {
+    height: 200px;
+    width: 200px;
+    border-radius: 40px;
+  }
+
+</style>

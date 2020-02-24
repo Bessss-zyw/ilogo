@@ -1,0 +1,119 @@
+<template>
+    <div class = "demo-page">
+
+    
+    <div class = "grid">
+      <text class = "hint-text">
+      请在下列元素中选取您较满意的几个。
+    </text>
+        <div class = "image-container" for = "item in imageList">
+            <image class = "{{sc}}" src={{item}} onclick = "onImagePress()"></image>
+            <input class="checkbox" type = "checkbox"></input>
+        </div>
+        <div class = "image-container" for = "item in imageList">
+            <image class = "{{sc}}" src={{item}} onclick = "onImagePress()"></image>
+            <input class="checkbox" type = "checkbox"></input>
+        </div>
+    <input class="btn" type="button" onclick="toNextRoute" value="确定" /></input>
+    
+
+    </div>
+</template>
+
+<script>
+import router from '@system.router'
+
+export default {
+  private: {
+    imageList: [     
+      '1.png',
+      '2.png',
+      '3.png',
+      '4.png',
+      '5.png',
+      '6.png',
+      '7.png',
+      '8.png',
+      '9.png',
+      '10.png',
+      '11.png',
+      '12.png'
+    ],
+    nextUri: 'Canvas'    
+  },
+  
+  onMenuPress() {
+    this.$app.$def.showMenu()
+  },
+  onImagePress() {
+    this.setClass('sc', 'scaleY')
+  },
+  toNextRoute() {
+    router.push ({
+      uri:this.nextUri
+    })
+  }
+}
+</script>
+
+
+<style>
+  .demo-page {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .hint-text {
+    width: 650px;
+    text-align:center;
+    color:#555454;
+  }
+  .btn {
+    width: 550px;
+    height: 86px;
+    margin-top: 75px;
+    border-radius: 43px;
+    background-color: #38aabf;
+    font-size: 30px;
+    color: #ffffff;
+  }
+  .grid {
+    width: 650px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color:#faf9f8;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .image-container {
+    height: 250px;
+    width: 200px;
+    padding: 40px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .checkbox {
+    padding-top: 10px;
+  }
+  .image-container text {
+    text-align: left;
+    font-size: 30px;
+    color: #a9a9a9;
+  }
+  .image-container image {
+    height: 100px;
+    width: 100px;
+    border-radius: 40px;
+  }
+  .image-container image:active {
+    height: 120px;
+    width: 120px;
+  }
+  .scaleY {
+    transform: scaleY(1.5);
+  }
+  .switch {
+    margin-right: 30px;
+  }
+</style>

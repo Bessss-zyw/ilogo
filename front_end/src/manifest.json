@@ -1,0 +1,108 @@
+{
+  "package": "com.application.demo",
+  "name": "周边",
+  "versionName": "1.0.0",
+  "versionCode": "1",
+  "minPlatformVersion": "1020",
+  "icon": "/Common/logo1.jpeg",
+  "features": [
+    { "name": "system.prompt" },
+    { "name": "system.router" },
+    { "name": "system.shortcut" }
+  ],
+  "permissions": [
+    { "origin": "*" }
+  ],
+  "config": {
+    "logLevel": "debug"
+  },
+  "router": {
+    "entry": "home",
+    "pages": {
+      "Demo": {
+        "component": "index"
+      },
+      "DemoDetail": {
+        "component": "index"
+      },
+      "About": {
+        "component": "index"
+      },
+      "home": {
+        "component": "index"
+      },
+      "Module": {
+        "component": "index"
+      },
+      "Gallery": {
+        "component": "index"
+      },
+      "Community": {
+        "component": "index"
+      },
+      "Mine": {
+        "component": "index"
+      },
+      "Canvas": {
+        "component":"index"
+      },
+      "Interaction_1": {
+        "component":"index"
+      },
+      "Interaction_2": {
+        "component":"index"
+      }
+    },
+    "widgets": {
+      "CardDemo": {
+        "name": "CardDemo",
+        "description": "快应用卡片展示",
+        "component": "index",
+        "path": "/CardDemo",
+        "features": []
+      }
+    }
+  },
+  "display": {
+    "titleBarBackgroundColor": "#38aabf",
+    "titleBarTextColor": "#ffffff",
+    "menu": true,
+    "pages": {
+      "Demo": {
+        "titleBarText": "示例页",
+        "menu": false
+      },
+      "DemoDetail": {
+        "titleBarText": "详情页"
+      },
+      "home": {
+        "titleBarText":"首页"
+      },
+      "About": {
+        "titleBarText": "关于",
+        "menu": false
+      },
+      "Module": {
+        "titleBarText": "模版"
+      },
+      "Gallery": {
+        "titleBarText": "图库"
+      },
+      "Community": {
+        "titleBarText": "社区"
+      },
+      "Mine": {
+        "titleBarText": "我的"
+      },
+      "Canvas": {
+        "titleBarText": "画布"
+      },
+      "Interaction_1": {
+        "titleBarText": "快速新建"
+      },
+      "Interaction_2": {
+        "titleBarText": "快速新建"
+      }
+    }
+  }
+}

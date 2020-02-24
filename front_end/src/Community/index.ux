@@ -1,0 +1,150 @@
+<template>
+  <div class = "demo-page">
+    <div class = "background">
+        <image src="bg.jpg"></image>
+    </div>
+
+    <div class = "addbox">
+      <image src="../Common/add.png"></image>
+      <text>New post</text>
+    </div>
+
+    <div class ="postContainer"></div>
+    
+    <div class = "postContainer" for = "item in postList">
+        <div class = "postContainer-avatar">
+          <image src={{item.avatar}}></image>
+          <text>{{item.name}}</text>
+        </div>
+        <div class = "post-content">
+          <text>{{item.content}}</text>
+          <image src="{{item.pic}}"></image>
+        </div>
+    </div>
+    <div class = "postContainer" for = "item in postList">
+        <div class = "postContainer-avatar">
+          <image src={{item.avatar}}></image>
+          <text>{{item.name}}</text>
+        </div>
+        <div class = "post-content">
+          <text>{{item.content}}</text>
+          <image src="{{item.pic}}"></image>
+        </div>
+    </div>
+
+    
+
+  </div>
+</template>
+
+
+<script>
+import router from '@system.router'
+
+export default {
+  private: {
+    BottomlineUri: [
+      '/Module',
+      '/Gallery',
+      '/Community',
+      '/Mine'
+    ],
+    postList: [
+      {
+        name: 'salty fish',
+        avatar: '../Mine/Avatar.jpeg',
+        content: 'Tomorrow is another day~ \n Tomorrow is another day~ \n Tomorrow is another day~',
+        pic: '../Common/logo4.png'
+      },
+      {
+        name: 'bess',
+        avatar: '../Mine/background.png',
+        content: 'Day day up. \n Day day up. \n Day day up.',
+        pic: '../Common/logo5.png'
+      },
+      {
+        name: 'one million',
+        avatar: '../Common/logo.png',
+        content: 'hello world \n hello world \n hello world',
+        pic: '../Common/logo6.png'
+      },
+    ]
+    
+  },
+  
+  onMenuPress() {
+    this.$app.$def.showMenu()
+  },
+  toRoute(index) {
+    router.push ({
+      uri:this.BottomlineUri[index]
+    })
+  }
+}
+</script>
+
+<style>
+  .demo-page {
+    flex-direction: column;
+    align-items: center;
+  }
+  .background image{
+    height: 1250px;
+    width: 750px;
+    position: fixed;
+  }
+  .addbox {
+    align-self: flex-start;
+    left: 550px;
+    position: fixed;
+    padding: 30px;
+    flex-direction: column;
+    opacity: 0.7;
+    align-items: center;
+    border-radius: 45px;
+  }
+  .addbox image{
+    height: 80px;
+    width: 80px;
+    border-radius: 25px;
+  }
+  .addbox text{
+    text-align: center;
+    flex-direction: column;
+  }
+  .postContainer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    flex-direction: row;
+    width: 600px;
+    background-color:#ffffff;
+    border: 1px solid #000000;
+    opacity: 0.9;
+    border-radius: 40px;
+  }
+  .postContainer-avatar {
+    flex-direction: column;
+    width: 150px;
+    align-items: center;
+    border: 1px solid #a0a0bb;
+  }
+  .postContainer-avatar image{
+    height: 100px;
+    width: 100px;
+    border-radius: 40px;
+  } 
+  .postContainer-avatar text{
+    text-align: center;
+  }
+  .post-content {
+    padding: 50px;
+    width: 500px;
+    border: 1px solid #a0a0bb;
+    flex-direction: column;
+  }
+  .post-content image {
+    height: 300px;
+    width: 300px;
+    opacity: 1;
+  }
+</style>

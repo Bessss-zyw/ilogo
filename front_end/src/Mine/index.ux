@@ -1,0 +1,154 @@
+<template>
+    <div class = "demo-page">
+        <image src="Avatar.jpeg" class = "avatar-image"></image>
+        <text class = "avatar-text">Level: {{level}}</text>
+
+      <div class = "information-container">
+        <div class = "information-textbox">
+          <text class = "information-textbox-text">昵称： </text>
+          <text>{{name}}</text>
+        </div>
+        <div class = "information-textbox">
+          <text class = "information-textbox-text">地区： </text>
+          <text>{{direct}}</text>
+        </div>
+        <div class = "information-textbox">
+          <text class = "information-textbox-text">邮箱： </text>
+          <text>{{mailbox}}</text>
+        </div>
+      </div>
+      
+      <div class = "preferenceBox">
+        <text class = "preference">
+          爱好的风格: 
+      </text>
+        <div class = "preferenceBox-item" for = "i in style">
+            <text>{{i}}</text>
+        </div>
+    </div>
+      
+
+
+  
+    </div>
+</template>
+
+
+<script>
+import router from '@system.router'
+
+export default {
+  private: {
+    BottomlineUri: [
+      '/Module',
+      '/Gallery',
+      '/Community',
+      '/Mine'
+    ],
+
+    avartar:'Avartar.jpeg',
+    level:'1000',
+    name:'Robust man',
+    direct:'Shanghai,\nChina',
+    mailbox:'12345678@\nilogo.com',
+    tag:'爱好的风格',
+    style: [
+      '简约',
+      '小清新',
+      '线条',
+      '创意',
+      '彩色',
+      '古风',
+      '高端质感',
+      '时尚',
+      '素雅',
+      'IOS风'
+    ]
+
+  },
+  error() {
+    this.$app.$def.Error()
+  },
+  onMenuPress() {
+    this.$app.$def.showMenu()
+  },
+  toRoute(index) {
+    router.push ({
+      uri:this.BottomlineUri[index]
+    })
+  }
+}
+</script>
+
+<style>
+  .demo-page {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(background.png);
+  }
+  .avatar-image {
+    left: 60px;
+    top: 100px;
+    height: 300px;
+    width: 300px;
+    position: fixed;
+    border-radius: 200px;
+    opacity: 0.8;
+  }
+  .avatar-text {
+    text-align: center;
+    top: 430px;
+    left: 60px;
+    width: 300px;
+    position: fixed;
+    font-size: 35px;
+
+  }
+  .information-container {
+    left: 400px;
+    top: 100px;
+    height: 400px;
+    width: 290px;
+    position: fixed;
+    flex-direction: column;
+  }
+  .information-textbox {
+    flex-direction: row;
+  }
+  .information-textbox-text {
+    width: 100px;
+  }
+  .information-container text {
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .preference {
+    width: 600px;
+    text-align: left;
+    font-size: 45px;
+    padding-bottom: 50px;
+  }
+  .preferenceBox {
+    position: fixed;
+    top: 500px;
+    left: 75px;
+    width: 600px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .preferenceBox-item {
+    height: 150px;
+    width: 150px;
+    border-radius: 100px;
+    align-items: center;
+    background-color:#f5f5f5;
+    opacity:0.5;
+  }
+  .preferenceBox-item text {
+    width: 150px;
+    text-align: center;
+  }
+</style>

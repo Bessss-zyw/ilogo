@@ -1,0 +1,196 @@
+<template>
+  <div class="demo-page">
+    
+    
+    <tabs class="tabs">
+      <tab-content class = "tab-content" scrollable = "true">
+      <div class = "item-container">
+        <swiper class = "swiper" indicator = "true" autoplay = "true" loop = "true" >
+          <image src="bg1.jpeg"></image>
+          <image src="bg2.jpeg"></image>
+          <image src="bg3.jpeg"></image>
+        </swiper>
+        <div class="grid">
+          <div class="grid-item">
+              <image src="../Common/logo14.jpeg"></image>
+              <text>免费</text>
+          </div>
+          <div class="grid-item">
+              <image src="../Common/logo15.jpeg"></image>
+              <text>免费</text>
+          </div>
+          <div class="grid-item">
+              <image src="../Common/logo16.jpeg"></image>
+              <text>免费</text>
+          </div>
+          <div class="grid-item">
+              <image src="../Common/logo16.jpeg"></image>
+              <text>VIP</text>
+          </div>
+          <div class="grid-item">
+              <image src="../Common/logo14.jpeg"></image>
+              <text>VIP</text>
+          </div>
+          <div class="grid-item">
+              <image src="../Common/logo15.jpeg"></image>
+              <text>VIP</text>
+          </div>
+          <div class="grid-item">
+              <image src="../Common/logo15.jpeg"></image>
+              <text>SVIP</text>
+          </div>
+          <div class="grid-item">
+              <image src="../Common/logo16.jpeg"></image>
+              <text>SVIP</text>
+          </div>
+          <div class="grid-item">
+              <image src="../Common/logo14.jpeg"></image>
+              <text>SVIP</text>
+          </div>
+      </div>
+      </div>
+      
+      </tab-content>
+      
+    
+      <tab-bar class="tab-bar">
+              <text class="tab-text" onclick = "toRoute(0)">模版</text>
+              <text class="tab-text" onclick = "toRoute(1)">图库</text>
+              <div class="tab-pic">
+                  <image src="../Common/add.png" id = "popup1"></image>
+                  <text>新建</text>
+              </div>
+              <text class="tab-text" onclick = "toRoute(2)">社区</text>
+              <text class="tab-text" onclick = "toRoute(3)">我的</text>
+      </tab-bar>
+      
+    </tabs>
+    <popup class = "popup" target="popup1" placement = "top" onclick = "toRoute(4)">
+        <text class="popup-text">快速新建</text>
+      </popup>
+  </div>
+</template>
+
+<script>
+import router from '@system.router'
+
+export default {
+  private: {
+    BottomlineUri: [
+      '/Module',
+      '/Gallery',
+      '/Community',
+      '/Mine',
+      '/Interaction_1'
+    ]
+  },
+  
+  onMenuPress() {
+    this.$app.$def.showMenu()
+  },
+  toRoute(index) {
+    router.push ({
+      uri:this.BottomlineUri[index]
+    })
+  }
+}
+</script>
+
+<style>
+  .demo-page {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .tab-content {
+    flex:1;
+  }
+  .item-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .swiper {
+    height: 400px;
+    width: 750px;
+    align-content: center;
+    indicator-color: #f0f8ff;
+    indicator-selected-color: #a52a2a;
+    indicator-size: 15px;
+  }
+  .grid {
+    width: 700px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .grid-item {
+    width: 230px;
+    height: 220px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .grid-item image {
+    width: 200px;
+    height: 180px;
+    border-radius: 10px;
+    opacity: 0.8;
+  }
+  .grid-item text {
+    font-size: 30px;
+    color:#6d6868;
+    font-family:'Trebuchet MS'; 
+  }
+  .tabs {
+    flex-direction: column;
+  }
+  .tab-bar {
+    border-top: 1px solid #a9a9a9;
+    height: 110px;
+    align-items: center;
+  }
+  .tab-text {
+    height: 110px;
+    width: 100px;
+    text-align: center;
+    font-size: 30px;
+    color: #a9a9a9;
+  }
+  .tab-text:active {
+    color: #0faeff;
+  }
+  .tab-pic {
+    padding-top: 10px;
+    flex-direction: column;
+    align-items: center;
+    height: 110px;
+    width: 100px;
+  }
+  .tab-pic image {
+    height: 70px;
+    width: 70px;
+  }
+  .tab-pic text {
+    text-align: center;
+    font-size: 20px;
+    color: #a9a9a9;
+  }
+  .popup{
+    flex-direction: row;
+  }
+  .popup text {
+    color: #a9a9a9;
+    height: 100px;
+    width: 180px; 
+    font-size: 30px;
+    text-align: center;
+    font-family:serif;
+  }
+  .popup text:active {
+    color: #0faeff;
+  }
+
+</style>

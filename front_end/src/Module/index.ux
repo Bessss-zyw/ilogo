@@ -1,0 +1,114 @@
+<template>
+  <div>
+    <div class ="sidebar">
+      <div class = "sidebar-item">
+        <text class = "sidebar-title">推荐</text>
+      </div>
+      <div class = "sidebar-item" for = "{{site in sidebarList}}">
+        <text class = "sidebar-item-text">{{site}}</text>
+      </div>
+    </div>
+      
+    <div class ="demo-page">
+      <div class = "module-item" for = "item in iamgeList">
+        <image  src={{item}}></image>
+      </div>     
+      <div class = "module-item" for = "item in iamgeList">
+        <image  src={{item}}></image>
+      </div>     
+    </div>
+  </div>
+
+</template>
+
+
+
+<script>
+import router from '@system.router'
+
+export default {
+  private: {
+    iamgeList: [
+      '../Common/logo.jpeg',      
+      '../Common/logo.png',
+      '../Common/logo1.jpeg',
+      '../Common/logo2.jpeg',
+      '../Common/logo3.jpeg',
+      '../Common/logo4.png',
+      '../Common/logo5.png',
+      '../Common/logo6.png',
+      '../Common/logo7.png',
+    ],
+    sidebarList: [
+      '简约',
+      '小清新',
+      '线条',
+      '创意',
+      '彩色',
+      '古风',
+      '高端质感',
+      '时尚',
+      '素雅',
+      'IOS风'
+    ]
+  },
+  
+  onMenuPress() {
+    this.$app.$def.showMenu()
+  },
+  toRoute(index) {
+    router.push ({
+      uri:this.BottomlineUri[index]
+    })
+  }
+}
+</script>
+
+<style>
+  .demo-page {
+    padding-left: 200px;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .sidebar {
+    position: fixed;
+    width: 200px;
+    height: 1000px;
+    flex-direction: column;
+    align-items: center;
+    background-color: #faebd7;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    opacity: 0.7;
+  }
+  .sidebar-title {
+    font-size: 30px;
+    font-weight:bolder;
+    color: #a52a2a;
+  }
+  .sidebar-item {
+    height: 100px;
+    width: 200px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    align-items: center;
+    flex-direction: column;
+  }
+  .sidebar-item-text {
+    font-size: 30px;
+    color: #a9a9a9;
+  }
+  .module-item {
+    height: 240px;
+    width: 240px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .module-item image {
+    height: 200px;
+    width: 200px;    
+    border-radius: 50px;
+  }
+</style>
+

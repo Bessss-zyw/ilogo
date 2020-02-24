@@ -1,0 +1,89 @@
+<template>
+    <div class = "demo-page">
+      <text class = "hint-text">请在下列输入框中输入品牌名称，品牌标语以及对logo的要求。</text>
+      <div class ="question-bar">
+        <input class="input-text" placeholder = " 品牌名称" /></input>
+      </div>
+      <div class ="question-bar">
+        <input class="input-text" placeholder = " 品牌标语" /></input>
+      </div>
+      <div class = "question-bar">
+        <textarea class = "input-long-text" placeholder = "请对logo进行描述"></textarea>
+      </div>
+    <input class="btn" type="button" onclick="toRoute(2)" value="选择模版新建" /></input>
+    <input class="btn" type="button" onclick="toRoute(0)" value="选择元素新建" /></input>
+    <input class="btn" type="button" onclick="toRoute(1)" value="快速生成" /></input>
+
+    </div>
+</template>
+
+<script>
+import router from '@system.router'
+
+export default {
+  private: {
+    nextUri: [
+      'Interaction_2',
+      'Canvas',
+      'Module'
+    ]   
+  },
+  
+  onMenuPress() {
+    this.$app.$def.showMenu()
+  },
+  toRoute(index) {
+    router.push ({
+      uri:this.nextUri[index]
+    })
+  },
+  toCanvas() {
+    router.push ({
+      uri: '/Canvas'
+    })
+  }
+}
+</script>
+
+
+<style>
+  .demo-page {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #faf9f8;
+  }
+  .hint-text {
+    width: 550px;
+    padding-bottom: 50px;
+    color:#555454;
+  }
+  .input-text {
+    height: 80px;
+    width: 500px;
+    border: 1px solid #504f4f;
+    font-size: 30px;
+    border-radius: 10px;
+  }
+  .input-long-text {
+    height: 200px;
+    width: 500px;
+    border: 1px solid #504f4f;
+    font-size: 30px;
+    border-radius: 10px;
+  }
+  .question-bar {
+    flex-direction: column;
+    padding-bottom: 50px;
+  }
+  .btn {
+    width: 550px;
+    height: 86px;
+    margin-top: 45px;
+    border-radius: 43px;
+    background-color: #38aabf;
+    font-size: 30px;
+    color: #ffffff;
+  }
+</style>
+
